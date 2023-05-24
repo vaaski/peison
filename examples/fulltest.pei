@@ -1,7 +1,7 @@
-# Python-Schlüsselwörter
+# Peison-Schlüsselwörter
 importiere keyword
 
-# Gib alle Python-Schlüsselwörter aus
+# Gib alle Peison-Schlüsselwörter aus
 drucken(keyword.kwlist)
 
 # Beispielhafte Verwendung jedes Schlüsselworts

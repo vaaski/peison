@@ -1,4 +1,4 @@
-# tic-tac-toe in python mit pygame
+# tic-tac-toe in peison mit pygame
 
 importiere pygame
 von pygame.locals importiere *
