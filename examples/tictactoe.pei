@@ -1,0 +1,118 @@
+# tic-tac-toe in python mit pygame
+
+importiere pygame
+von pygame.locals importiere *
+von sys importiere exit
+
+pygame.init()
+
+bildschirm = pygame.display.set_mode((600, 600), 0, 32)
+
+pygame.display.set_caption("Tic-Tac-Toe")
+
+# Farben
+schwarz = (0, 0, 0)
+weiß = (255, 255, 255)
+rot = (255, 0, 0)
+
+# Spielfeld
+feld = [[Nichts, Nichts, Nichts],
+        [Nichts, Nichts, Nichts],
+        [Nichts, Nichts, Nichts]]
+
+# Spieler
+spieler = "X"
+
+# Gewinner
+gewinner = Nichts
+
+# Spielfeld zeichnen
+
+
+definiere draw_field():
+  für x im bereich(1, 3):
+    pygame.draw.line(bildschirm, schwarz, (0, 200 * x), (600, 200 * x), 2)
+    pygame.draw.line(bildschirm, schwarz, (200 * x, 0), (200 * x, 600), 2)
+
+# Spielfeld aktualisieren
+
+
+definiere feld_aktualisieren():
+  für y im bereich(3):
+    für x im bereich(3):
+      wenn feld[y][x] == "X":
+        pygame.draw.line(bildschirm, rot, (x * 200 + 10, y * 200 + 10),
+                         (x * 200 + 190, y * 200 + 190), 2)
+        pygame.draw.line(bildschirm, rot, (x * 200 + 190, y *
+                         200 + 10), (x * 200 + 10, y * 200 + 190), 2)
+      wennsonst feld[y][x] == "O":
+        pygame.draw.circle(bildschirm, rot, (x * 200 + 100, y * 200 + 100), 90, 2)
+
+# Gewinner ermitteln
+
+
+definiere check_winner():
+  global gewinner
+  für y im bereich(3):
+    wenn feld[y][0] == feld[y][1] == feld[y][2] und feld[y][0] != Nichts:
+      gewinner = feld[y][0]
+  für x im bereich(3):
+    wenn feld[0][x] == feld[1][x] == feld[2][x] und feld[0][x] != Nichts:
+      gewinner = feld[0][x]
+  wenn feld[0][0] == feld[1][1] == feld[2][2] und feld[0][0] != Nichts:
+    gewinner = feld[0][0]
+  wenn feld[0][2] == feld[1][1] == feld[2][0] und feld[0][2] != Nichts:
+    gewinner = feld[0][2]
+
+# Spiel beenden
+
+
+definiere quit_game():
+  pygame.quit()
+  exit()
+
+# Spiel neu starten
+
+
+definiere restart_game():
+  global feld, spieler, gewinner
+  feld = [[Nichts, Nichts, Nichts],
+           [Nichts, Nichts, Nichts],
+           [Nichts, Nichts, Nichts]]
+  spieler = "X"
+  gewinner = Nichts
+
+
+# Spielablauf
+solange Wahr:
+  für event im pygame.event.get():
+    wenn event.type == QUIT:
+      quit_game()
+    wennsonst event.type == KEYDOWN:
+      wenn event.key == K_ESCAPE:
+        quit_game()
+      wennsonst event.key == K_SPACE:
+        restart_game()
+    wennsonst event.type == MOUSEBUTTONDOWN:
+      wenn gewinner == Nichts:
+        x, y = pygame.mouse.get_pos()
+        x = x // 200
+        y = y // 200
+        wenn feld[y][x] == Nichts:
+          feld[y][x] = spieler
+          wenn spieler == "X":
+            spieler = "O"
+          sonst:
+            spieler = "X"
+          check_winner()
+
+  bildschirm.fill(weiß)
+  draw_field()
+  feld_aktualisieren()
+
+  wenn gewinner != Nichts:
+    font = pygame.font.SysFont("Arial", 100)
+    text = font.render(gewinner + " wins!", Wahr, schwarz)
+    bildschirm.blit(text, (200, 250))
+
+  pygame.display.update()
