@@ -89,7 +89,7 @@ def außer_func():
     print("Fehler: Division durch Null")
 
 
-def endlich_func():
+def schließlich_func():
   try:
     x = 5 / 0
   except ZeroDivisionError:
@@ -239,7 +239,7 @@ lösche_func()
 sonstwenn_func()
 sonst_func()
 außer_func()
-endlich_func()
+schließlich_func()
 für_func()
 von_func()
 global_func()
