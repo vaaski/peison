@@ -1,7 +1,10 @@
-<h1 align="center">Peison</h1>
+<p align="center">
+  <img src="docs/peison.svg" />
+</p>
+
 <p align="center">Die Python Programmiersprache - endlich auf Deutsch!</p>
 
-<br />
+---
 
 ### Was ist Peison?
 
