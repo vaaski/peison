@@ -1,3 +1,6 @@
+import io
+import tokenize
+
 grammar = {
   'and': 'und',
   'assert': 'behaupte',
@@ -26,3 +29,30 @@ grammar = {
   'while': 'solange',
   'yield': 'ergibt',
 }
+grammar_reverse = {value: key for key, value in grammar.items()}
+
+
+def swap(input_string, dict):
+  src = io.BytesIO(input_string.encode())
+  tokens = []
+  prev_end = (0, 0)
+  for token in tokenize.tokenize(src.readline):
+    if token.type == tokenize.NAME and token.string in dict:
+      # Check for spaces before the token
+      spaces = token.start[1] - prev_end[1]
+      if token.start[0] > prev_end[0]:
+        spaces = token.start[1]
+      tokens.append(' ' * spaces)
+      tokens.append(dict[token.string])
+    elif token.type == tokenize.NEWLINE:
+      tokens.append(token.string)
+    elif token.type not in (tokenize.ENCODING, tokenize.ENDMARKER):
+      # Check for spaces before the token
+      spaces = token.start[1] - prev_end[1]
+      if token.start[0] > prev_end[0]:
+        spaces = token.start[1]
+      tokens.append(' ' * spaces)
+      tokens.append(token.string)
+    prev_end = token.end
+
+  return ''.join(tokens)
