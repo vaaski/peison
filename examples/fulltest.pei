@@ -1,0 +1,260 @@
+# Python-Schlüsselwörter
+importiere keyword
+
+# Gib alle Python-Schlüsselwörter aus
+drucken(keyword.kwlist)
+
+# Beispielhafte Verwendung jedes Schlüsselworts
+
+
+definiere und_func():
+  x = Wahr
+  y = Falsch
+  wenn x und y:
+    drucken("Sowohl x als auch y sind wahr")
+
+
+definiere als_func():
+  x = "Hallo, Welt!"
+  y = x[2:5]  # Slicing
+  drucken(y)  # Ausgabe: llo
+
+
+definiere behaupte_func():
+  x = 5
+  behaupte x == 5, "x ist nicht gleich 5"
+
+
+definiere abbruch_func():
+  fuer i im bereich(10):
+    wenn i == 5:
+      abbrechen
+    drucken(i)
+
+
+definiere klasse_func():
+  klasse MeineKlasse:
+    definiere __init__(selbst):
+      selbst.name = "John"
+
+    definiere begrüßen(selbst):
+      drucken("Hallo,", selbst.name)
+
+  obj = MeineKlasse()
+  obj.begrüßen()
+
+
+definiere fortsetzen_func():
+  fuer i im bereich(10):
+    wenn i == 5:
+      weiter
+    drucken(i)
+
+
+definiere def_func():
+  definiere addiere(x, y):
+    zurueck x + y
+
+  ergebnis = addiere(3, 5)
+  drucken(ergebnis)
+
+
+definiere lösche_func():
+  x = 5
+  entferne x
+
+
+definiere sonstwenn_func():
+  x = 5
+  wenn x == 1:
+    drucken("x ist 1")
+  wennsonst x == 2:
+    drucken("x ist 2")
+  sonst:
+    drucken("x ist weder 1 noch 2")
+
+
+definiere sonst_func():
+  x = 5
+  wenn x > 10:
+    drucken("x ist größer als 10")
+  sonst:
+    drucken("x ist kleiner oder gleich 10")
+
+
+definiere außer_func():
+  versuche:
+    x = 5 / 0
+  ausser NullTeilungsFehler:
+    drucken("Fehler: Division durch Null")
+
+
+definiere endlich_func():
+  versuche:
+    x = 5 / 0
+  ausser NullTeilungsFehler:
+    drucken("Fehler: Division durch Null")
+  schliesslich:
+    drucken("Finally-Block ausgeführt")
+
+
+definiere für_func():
+  fruechte = ["Apfel", "Banane", "Kirsche"]
+  fuer frucht im fruechte:
+    drucken(frucht)
+
+
+definiere von_func():
+  von math importiere quadratwurzel
+  drucken(quadratwurzel(16))
+
+
+definiere global_func():
+  x = 5
+
+  definiere func():
+    global x
+    x = 10
+
+  func()
+  drucken(x)
+
+
+definiere wenn_func():
+  x = 5
+  wenn x > 0:
+    drucken("x ist positiv")
+
+
+definiere import_func():
+  importiere math
+  drucken(math.quadratwurzel(16))
+
+
+definiere in_func():
+  x = 5
+  y = [1, 2, 3, 4, 5]
+  wenn x im y:
+    drucken("x ist in der Liste enthalten")
+
+
+definiere ist_func():
+  x = 5
+  y = 10
+  wenn x ist y:
+    drucken("x und y verweisen auf dasselbe Objekt")
+
+
+definiere lambda_func():
+  definiere addiere(x, y): zurueck x + y
+  ergebnis = addiere(3, 5)
+  drucken(ergebnis)
+
+
+definiere nichtlokal_func():
+  definiere äußere():
+    x = "lokal"
+
+    definiere innere():
+      nichtlokal x
+      x = "nichtlokal"
+      drucken("inner:", x)
+
+    innere()
+    drucken("äußere:", x)
+
+  äußere()
+
+
+definiere nicht_func():
+  x = Falsch
+  wenn nicht x:
+    drucken("x ist Falsch")
+
+
+definiere oder_func():
+  x = Wahr
+  y = Falsch
+  wenn x oder y:
+    drucken("Entweder x oder y ist wahr")
+
+
+definiere überspringen_func():
+  pass
+
+
+definiere auslöse_func():
+  x = 5
+  wenn x > 0:
+    behandle ValueError("x muss negativ sein")
+
+
+definiere rückgabe_func():
+  definiere addiere(x, y):
+    zurueck x + y
+
+  ergebnis = addiere(3, 5)
+  zurueck ergebnis
+
+
+definiere versuche_func():
+  versuche:
+    x = 5 / 0
+  ausser NullTeilungsFehler:
+    drucken("Fehler: Division durch Null")
+
+
+definiere während_func():
+  i = 0
+  solange i < 5:
+    drucken(i)
+    i += 1
+
+
+definiere mit_func():
+  mit open("datei.txt", "r") als f:
+    daten = f.read()
+    drucken(daten)
+
+
+definiere erzeugen_func():
+  definiere generator():
+    fuer i im bereich(5):
+      ergibt i
+
+  g = generator()
+  fuer x im g:
+    drucken(x)
+
+
+# Rufe alle Funktionen auf
+und_func()
+als_func()
+behaupte_func()
+abbruch_func()
+klasse_func()
+fortsetzen_func()
+def_func()
+lösche_func()
+sonstwenn_func()
+sonst_func()
+außer_func()
+endlich_func()
+für_func()
+von_func()
+global_func()
+wenn_func()
+import_func()
+in_func()
+ist_func()
+lambda_func()
+nichtlokal_func()
+nicht_func()
+oder_func()
+überspringen_func()
+# raise_func()
+rückgabe_func()
+versuche_func()
+während_func()
+# with_func()
+erzeugen_func()
