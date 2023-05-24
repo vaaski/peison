@@ -8,6 +8,6 @@ input_string = read_file_into_string(filename)
 
 output = swap(input_string, grammar_reverse)
 
-# write to file of the same name, but with .pei extension
-with open(filename[:-3] + '.py', 'w') as dest:
+# write to file of the same name, but with .py extension
+with open(filename[:-4] + '.py', 'w') as dest:
   dest.write(output)
