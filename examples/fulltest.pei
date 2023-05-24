@@ -186,7 +186,7 @@ definiere überspringen_func():
 definiere auslöse_func():
   x = 5
   wenn x > 0:
-    behandle ValueError("x muss negativ sein")
+    behandle WertFehler("x muss negativ sein")
 
 
 definiere rückgabe_func():
@@ -212,7 +212,7 @@ definiere während_func():
 
 
 definiere mit_func():
-  mit open("datei.txt", "r") als f:
+  mit öffne("datei.txt", "r") als f:
     daten = f.read()
     drucken(daten)
 

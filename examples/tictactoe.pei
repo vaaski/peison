@@ -1,8 +1,8 @@
 # tic-tac-toe in peison mit pygame
 
 importiere pygame
-von pygame.locals importiere *
-von sys importiere exit
+von pygame.lokal importiere *
+von sys importiere raus
 
 pygame.init()
 
@@ -68,8 +68,8 @@ definiere check_winner():
 
 
 definiere quit_game():
-  pygame.quit()
-  exit()
+  pygame.schließe()
+  raus()
 
 # Spiel neu starten
 
@@ -86,14 +86,14 @@ definiere restart_game():
 # Spielablauf
 solange Wahr:
   für event im pygame.event.get():
-    wenn event.type == QUIT:
+    wenn event.typ == QUIT:
       quit_game()
-    wennsonst event.type == KEYDOWN:
+    wennsonst event.typ == KEYDOWN:
       wenn event.key == K_ESCAPE:
         quit_game()
       wennsonst event.key == K_SPACE:
         restart_game()
-    wennsonst event.type == MOUSEBUTTONDOWN:
+    wennsonst event.typ == MOUSEBUTTONDOWN:
       wenn gewinner == Nichts:
         x, y = pygame.mouse.get_pos()
         x = x // 200
