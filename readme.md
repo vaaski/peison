@@ -64,8 +64,8 @@ drucke("Hallo Welt!")
 definiere schließlich_func():
   versuche:
     x = 5 / 0
-  ausser NullTeilungsFehler:
+  außer NullTeilungsFehler:
     drucken("Fehler: Division durch Null")
-  schliesslich:
-    drucken("Finally-Block ausgeführt")
+  schließlich:
+    drucken("Schließlich-Block ausgeführt")
 ```
