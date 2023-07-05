@@ -8,5 +8,4 @@ input_string = read_file_into_string(filename)
 
 output = swap(input_string, grammar_reverse)
 
-# execute the code
 exec(output)
