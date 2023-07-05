@@ -169,26 +169,37 @@ grammar_reverse = {value: key for key, value in grammar.items()}
 
 
 def swap(input_string, dict):
+  # Erstelle ein BytesIO-Objekt aus dem Eingabestring
   src = io.BytesIO(input_string.encode())
+  # Initialisiere eine leere Liste, um die modifizierten Tokens zu speichern
   tokens = []
+  # Initialisiere ein Tupel, um die Endposition des vorherigen Tokens zu speichern
   prev_end = (0, 0)
+  # Schleife durch jedes Token im Eingabestring
   for token in tokenize.tokenize(src.readline):
+    # Wenn das Token ein NAME-Token ist und sein String-Wert im Wörterbuch enthalten ist
     if token.type == tokenize.NAME and token.string in dict:
-      # Check for spaces before the token
+      # Überprüfe, ob Leerzeichen vor dem Token vorhanden sind
       spaces = token.start[1] - prev_end[1]
       if token.start[0] > prev_end[0]:
         spaces = token.start[1]
+      # Füge die erforderlichen Leerzeichen und den entsprechenden Wert aus dem Wörterbuch zur Liste der Tokens hinzu
       tokens.append(' ' * spaces)
       tokens.append(dict[token.string])
+    # Wenn das Token ein NEWLINE-Token ist, füge es einfach zur Liste der Tokens hinzu
     elif token.type == tokenize.NEWLINE:
       tokens.append(token.string)
+    # Wenn das Token kein ENCODING- oder ENDMARKER-Token ist
     elif token.type not in (tokenize.ENCODING, tokenize.ENDMARKER):
-      # Check for spaces before the token
+      # Überprüfe, ob Leerzeichen vor dem Token vorhanden sind
       spaces = token.start[1] - prev_end[1]
       if token.start[0] > prev_end[0]:
         spaces = token.start[1]
+      # Füge die erforderlichen Leerzeichen und das Token selbst zur Liste der Tokens hinzu
       tokens.append(' ' * spaces)
       tokens.append(token.string)
+    # Aktualisiere die Endposition des vorherigen Tokens
     prev_end = token.end
 
+  # Füge die Liste der Tokens zu einem einzelnen String zusammen und gib ihn zurück
   return ''.join(tokens)
